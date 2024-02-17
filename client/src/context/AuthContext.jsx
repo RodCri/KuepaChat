@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { createContext, useCallback, useEffect, useState } from "react";
@@ -43,7 +44,7 @@ export const AuthContextProvider = ({children}) =>{
 
   const registerUser = useCallback(async(e)=>{
     e.preventDefault();
-    
+   
     setIsRegisterLoading(true);
     setRegisterError(null)
     
@@ -60,11 +61,12 @@ export const AuthContextProvider = ({children}) =>{
 
     localStorage.setItem("User", JSON.stringify(response));
     setUser(response)
+    setRegisterError(null)
   }, [registerInfo])
 
   const loginUser = useCallback(async(e)=>{
     e.preventDefault();
-
+    
     setIsLoginLoading(true)
     setLoginError(null)
 
@@ -90,6 +92,11 @@ export const AuthContextProvider = ({children}) =>{
     loginInfo(null);
   },[])
 
+  const cleanMessage = () =>{
+    setLoginError(null);
+    setRegisterError(null);
+  }
+
   return (
     <AuthContext.Provider 
       value={{
@@ -104,7 +111,8 @@ export const AuthContextProvider = ({children}) =>{
         loginInfo,
         loginError,
         updateLoginInfo,
-        isLoginLoading
+        isLoginLoading,
+        cleanMessage
       }}>
       {children}
     </AuthContext.Provider>)
