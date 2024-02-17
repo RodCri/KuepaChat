@@ -14,3 +14,7 @@
 .form__label {
   font-size: 1.4rem;
 }
+.error {
+  font-size: 1.2rem;
+  color: #9e0612;
+}

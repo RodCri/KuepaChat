@@ -85,7 +85,7 @@ export const Register = () => {
               {
                 registerError?.error && 
                   <Alert variant="danger">
-                    <p>{registerError?.message}</p>
+                    <span className={styles.error}>{registerError?.message}</span>
                   </Alert>
               }
             </Stack>

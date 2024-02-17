@@ -24,3 +24,7 @@
 .form__cta:hover {
   background-color: #f56b77;
 }
+.error {
+  font-size: 1.2rem;
+  color: #9e0612;
+}
