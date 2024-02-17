@@ -32,7 +32,7 @@ export const AuthContextProvider = ({children}) =>{
   },[])
 
   // console.log("registerInfo",registerInfo);
-  console.log("loginInfo",loginInfo);
+  // console.log("loginInfo",loginInfo);
 
   const updateRegisterInfo = useCallback ((info)=>{
     setRegisterInfo(info)
