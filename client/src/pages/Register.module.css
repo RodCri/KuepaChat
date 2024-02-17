@@ -1,0 +1,20 @@
+.form__register {
+  width: 50%;
+  margin: 0 auto;
+  background-color: var(--text-white);
+  padding: 5rem;
+}
+.register__title {
+  color: var(--title-heade);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.form__label {
+  font-size: 1.4rem;
+}
+.error {
+  font-size: 1.2rem;
+  color: #9e0612;
+}

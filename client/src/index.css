@@ -1,0 +1,14 @@
+:root {
+  --title-heade: #fd531e;
+  --text-body: #292929;
+  --sub-body: #4f5152;
+  --text-white: #fff;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #f6f7f9;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+}
