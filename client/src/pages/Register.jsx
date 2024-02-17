@@ -4,7 +4,7 @@ import {Alert, Button, Form, Row, Col, Stack} from"react-bootstrap"
 import styles from './Register.module.css';
 
 export const Register = () => {
-  const { registerInfo,updateRegisterInfo } = useContext(AuthContext);
+  const { registerInfo, updateRegisterInfo, registerUser, registerError, isRegisterLoading } = useContext(AuthContext);
   const rolUsers = {
     options: [
       {
@@ -13,11 +13,11 @@ export const Register = () => {
       },
       {
         name: 'Student',
-        value: 'Student',
+        value: 'S',
       },
       {
         name: 'Moderator',
-        value: 'Moderator',
+        value: 'M',
       }
     ],
     value: '?',
@@ -25,7 +25,9 @@ export const Register = () => {
   const { options, value } = rolUsers;
   return (
     <>
-      <Form className={styles.form__register}>
+      <Form className={styles.form__register}
+        onSubmit={registerUser}
+      >
         <h2 className={styles.register__title}>
           Register
         </h2>
@@ -59,7 +61,7 @@ export const Register = () => {
                   size="lg" 
                   placeholder="*******" 
                   onChange={(e)=>
-                  updateRegisterInfo({...registerInfo,userName: e.target.value})}
+                  updateRegisterInfo({...registerInfo,password: e.target.value})}
                 />
               </Form.Group>
               <Form.Group>
@@ -78,11 +80,14 @@ export const Register = () => {
                 </Form.Select>
               </Form.Group>
               <Button size="lg" type="submit">
-                Register
+                {isRegisterLoading ? "Creating your account" : "Register"}
               </Button>
-              <Alert variant="danger">
-                <p>Error!</p>
-              </Alert>
+              {
+                registerError?.error && 
+                  <Alert variant="danger">
+                    <p>{registerError?.message}</p>
+                  </Alert>
+              }
             </Stack>
           </Col>
         </Row>

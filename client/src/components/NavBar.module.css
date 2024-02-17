@@ -36,3 +36,8 @@
 .nav__link:last-child:hover {
   box-shadow: 0 0 6px 0 var(--title-heade);
 }
+.navbar__username {
+  color: var(--title-heade);
+  font-weight: 700;
+  padding: 0 1rem;
+}
