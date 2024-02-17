@@ -13,7 +13,7 @@ export const NavBar = () => {
         </div>
         <Navbar.Text>
             Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text>
+        </Navbar.Text>
         <div className={styles.navbar__containerOptions}>
           <Link to="/register" className={styles.nav__link}>
             <li className={styles.nav_item}>Register</li>

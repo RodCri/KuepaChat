@@ -1,0 +1,26 @@
+.form__login {
+  width: 50%;
+  margin: 0 auto;
+  background-color: var(--text-white);
+  padding: 5rem;
+}
+.login__title {
+  color: var(--title-heade);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.form__label {
+  font-size: 1.4rem;
+}
+.form__cta {
+  background-color: var(--title-heade);
+  padding: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.form__cta:hover {
+  background-color: #f56b77;
+}
