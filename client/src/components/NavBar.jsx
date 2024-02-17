@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import { Container, Nav, Navbar, Stack } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom"
 import logo from '../assets/logo.png';
 import styles from './NavBar.module.css';
@@ -8,7 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export const NavBar = () => {
 
-  const { user,logoutUser } = useContext(AuthContext);
+  const { user,logoutUser,cleanMessage } = useContext(AuthContext);
 
   return (
     <Navbar className={styles.navbar}> 
@@ -43,12 +42,14 @@ export const NavBar = () => {
               <Link 
                 to="/register" 
                 className={styles.nav__link}
+                onClick={cleanMessage}
               >
                 <li className={styles.nav_item}>Register</li>
               </Link>
               <Link 
                 to="/login" 
                 className={styles.nav__link}
+                onClick={cleanMessage}
               >
                 <li className={styles.nav__item}>Login</li>
               </Link>

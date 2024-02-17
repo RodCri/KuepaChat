@@ -1,7 +1,5 @@
 # Kuepa - chat
 
-![Diseño o preview](./preview/preview.png)
-
 ## Welcome! 👋
 
 Kuepa ofrece streaming de sus clases virtuales solo para sus estudiantes.
@@ -10,8 +8,36 @@ Kuepa ofrece streaming de sus clases virtuales solo para sus estudiantes.
 
 Crear una herramienta de chat a las clases virtuales, permitiendo la interaccion entre estudiante y moderador
 
+- Registro de nuevos usuarios (Nombre, UserName, Password, Rol {Moderador,Estudiante} )
+- Login (inicio de sesión de usuarios registrados)
+
 ## Estructura del proyecto
 
-Servidor -> Desarrollado en Node Js bajo Express Js
-Cliente -> Desarrollado en React Js
-Persistencia -> MongoDB
+![Diseño o preview](./preview/Arqui.png)
+
+## BD
+
+- MongoDB
+
+## Servidor
+
+## Node Js bajo Express Js
+
+1. Ingresar a la carpeta server e instalar las dependencias
+
+- cd server - pnpm i
+- Mongoose validator bcrypt jwt express
+- nodemon para iniciar el servido
+- Port 5000
+
+## Cliente
+
+## React Js
+
+1. Ingresar a la carpeta client e instalar las dependencias
+
+- cd client - pnpm i
+- pnpm run dev
+- Port 5173
+
+![Diseño o preview](./preview/Client.png)
