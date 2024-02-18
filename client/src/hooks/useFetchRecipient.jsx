@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { baseUrl, getRequest } from "../utils/services";
@@ -6,8 +7,10 @@ export const useFetchRecipientUser = (chat, user) =>{
   const [recipientUser, setRecipientUser] = useState(null);
   const [error, setError] = useState(null);
 
-  const recipientId = chat?.members.find((id) => id !==user?._id);
+  const recipientId = chat?.members.find((id) => id !== user?._id);
   // console.log("re",recipientId);
+ //console.log("chat",chat)
+  //console.log("user",user)
 
   useEffect(() => {
     const getUser = async () => {
@@ -19,10 +22,10 @@ export const useFetchRecipientUser = (chat, user) =>{
       }
       
       setRecipientUser(response)
-      console.log("error",response)
+      // console.log("error",response)
     };
     getUser();
-  }, []);
+  }, [recipientId]);
 
   return {recipientUser, error}
   
