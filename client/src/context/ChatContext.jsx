@@ -15,9 +15,11 @@ export const ChatContextProvider = ({children, user}) =>{
   const [messages, setMessages] = useState(null);
   const [isMessagesLoading, setIsMessagesLoading] = useState(false);
   const [messagesError, setMessagesError] = useState(null);
+  const [sendTextMessagesError, setSendTextMessagesError] = useState(null);
+  const [newMessage, setNewMessage] = useState(null);
 
- console.log("current",currentChat)
- console.log("messages",messages)
+ // console.log("current",currentChat)
+ // console.log("messages",messages)
   //console.log("potencial",potencialChats)
 
   useEffect(()=>{
@@ -86,6 +88,28 @@ export const ChatContextProvider = ({children, user}) =>{
     
   }, [currentChat]);
 
+  const sendTextMessage = useCallback(
+    async (textMessage, sender, currentChatId, setTextMessage) =>{
+      if(!textMessage) return console.log("empty message");
+      const response = await postRequest(
+        `${baseUrl}/messages`,
+        JSON.stringify({
+          chatId: currentChatId,
+          senderId: sender._id,
+          text: textMessage,
+        })
+      );
+      if(response.error){
+        return setSendTextMessagesError(response);
+      }
+
+      setNewMessage(response);
+      setMessages((prev)=>[...prev, response]);
+      setTextMessage("")
+    },[]
+  );
+
+  // ToDo update currentChat
   const updateCurrentChat = useCallback((chat) => {
     setCurrentChat(chat);
   }, []);
@@ -117,7 +141,8 @@ export const ChatContextProvider = ({children, user}) =>{
       updateCurrentChat,
       messages,
       isMessagesLoading,
-      messagesError
+      messagesError,
+      sendTextMessage
     }}>
       {children}
     </ChatContext.Provider>

@@ -13,8 +13,6 @@ export const Chat = () => {
   // eslint-disable-next-line no-unused-vars
   const {userChats, isUserChatsLoading, updateCurrentChat} = useContext(ChatContext);
 
-  // console.log("userChats", userChats)
-
   return (
     <Container>
       <PotencialChats />
