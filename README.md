@@ -41,3 +41,4 @@ Crear una herramienta de chat a las clases virtuales, permitiendo la interaccion
 - Port 5173
 
 ![Diseño o preview](./preview/Client.png)
+![Diseño o preview](./preview/Chat.png)
